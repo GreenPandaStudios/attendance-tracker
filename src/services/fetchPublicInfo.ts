@@ -2,9 +2,10 @@ import { IPublicAttendanceInfo } from "../types/attendanceTypes";
 import { csvStringToJson } from "./csvStringToJson";
 
 export async function fetchPublicInfo(): Promise<IPublicAttendanceInfo[] | undefined> {
-    const r = await fetch("/publicinfo.csv")
+    const r = await fetch("publicInfo.csv")
     const text = await r.text();
-
+    console.log(text);
+    
     // This will come in like this:
     // "firstName,lastName,improvedAttendance"
     // "John,Doe,TRUE"

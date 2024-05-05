@@ -1,5 +1,5 @@
 export function csvStringToJson(csvString: string): object[] {
-    const lines = csvString.split('\r\n');
+    const lines = csvString.split('\n');
     const headers = lines[0].split(',');
 
     const result = [];

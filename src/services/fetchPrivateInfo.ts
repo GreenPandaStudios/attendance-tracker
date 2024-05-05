@@ -4,7 +4,7 @@ import { csvStringToJson } from "./csvStringToJson";
 
 
 export async function fetchPrivateInfo(password: string, student: IStudent): Promise<IPrivateAttendanceInfo | undefined> {
-    const r = await fetch("/privateinfo.csv")
+    const r = await fetch("privateInfo.csv")
     const text = await r.text();
 
     // This will come in like this:
@@ -60,7 +60,6 @@ async function generatePassCodes() {
     attendanceInfoArray.forEach(info => {
         string += `${info.firstName},${info.lastName},${info.passCode},${info.passwordHash}\r\n`
     });
-    console.log(string);
 }
 
 function hash(input: string): string {
