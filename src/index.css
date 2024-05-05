@@ -7,7 +7,116 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.attendance-info {
+  margin: auto;
+}
+
+.attendance-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name-tile {
+  min-width: 200px;
+  max-width: 500px;
+  margin: 20px;
+  padding: 20px;
+  border: .125rem solid #ccc;
+  border-radius: .5rem;
+  background-color: #f9f9f9;
+  will-change: filter;
+  transition: filter .2s ease-out;
+  }
+
+
+.name-tile .name-header {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+
+.name-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.name-tile .name {
+  text-align: left;
+  align-content: center;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+
+.name-tile.improved {
+  border-color: green;
+  filter: drop-shadow(0 0 .25rem green);
+}
+
+.name-tile.improved:hover {
+  filter: drop-shadow(0 0 2rem green);
+}
+
+.name-tile.worsened {
+  border-color: red;
+}
+
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .25rem;
+  cursor: pointer;
+  user-select: none;
+  border-top: solid rgb(129, 129, 129) 1px; 
+}
+
+.accordion-content {
+  padding: 10px;
+  overflow: hidden;
+  transition: all .5s;
+}
+
+.open .accordion-content {
+  max-height: 200px;
+}
+
+.closed .accordion-content {
+  max-height: 0px;
+  padding: 0;
+}
+
+.icon {
+  transition: transform .5s;
+}
+.open .icon {
+  transform: rotate(180deg);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input.pass-input {
+  text-align: center;
+  height: 2rem;
+  font-size: large;
+  border-radius: .5rem;
+}
+
+input.pass-input.error {
+  border-color: red;
+}
+
+.submit-button {
+  text-align: center;
+  background-color: white !important;
+  font-size: large;
+  border-radius: .5rem;
+  margin-top: 1rem;
 }
