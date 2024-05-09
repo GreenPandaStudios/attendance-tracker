@@ -1,14 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import NameList from './components/NameList';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import NameList from "./components/NameList";
+import HashGenerator from "./components/HashGenerator";
 
 function App() {
-  return (
-    <div className="App">
-      <NameList/>
-    </div>
-  );
+	const [page, setPage] = useState<"NameList" | "HashGenerator">("NameList");
+
+	return (
+		<div className="App">
+			{page === "HashGenerator" ? (
+				<>
+          <button className="nav-button" onClick={() => setPage("NameList")}>Back</button>
+					<HashGenerator />
+          
+				</>
+			) : (
+				<>
+          <button className="nav-button" onClick={() => setPage("HashGenerator")}/>
+					<NameList />
+				</>
+			)}
+		</div>
+	);
 }
 
 export default App;

@@ -12,7 +12,7 @@ export function csvStringToJson(csvString: string): object[] {
             if (headers[j] === "") {
                 break;
             }
-            obj[headers[j]] = currentLine[j];
+            obj[headers[j]] = currentLine[j].trimEnd();
         }
         if(obj !== "") {
             result.push(obj);

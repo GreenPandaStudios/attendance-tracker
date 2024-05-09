@@ -5,7 +5,7 @@ export async function fetchPublicInfo(): Promise<IPublicAttendanceInfo[] | undef
     const r = await fetch("publicInfo.csv")
     const text = await r.text();
     console.log(text);
-    
+
     // This will come in like this:
     // "firstName,lastName,improvedAttendance"
     // "John,Doe,TRUE"
@@ -14,13 +14,11 @@ export async function fetchPublicInfo(): Promise<IPublicAttendanceInfo[] | undef
         return ({
             firstName: json["firstName"],
             lastName: json["lastName"],
-            improvedAttendance: json["improvedAttendance"] == "TRUE"? true : false,
+            improvedAttendance: (json["improvedAttendance"] as string).toUpperCase().includes("TRUE") ? true : false,
         })}) as IPublicAttendanceInfo[];
 
     return attendanceInfoArray.sort((b,a) => (b.lastName + b.firstName).localeCompare(a.lastName + a.firstName));
 }
-
-
 
 
 

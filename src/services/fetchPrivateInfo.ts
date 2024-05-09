@@ -1,7 +1,6 @@
 import { IPrivateAttendanceInfo, IStudent, IAttendanceInfo } from "../types/attendanceTypes";
-import { SHA256 } from 'crypto-js';
 import { csvStringToJson } from "./csvStringToJson";
-
+import { hash } from "./hash";
 
 export async function fetchPrivateInfo(password: string, student: IStudent): Promise<IPrivateAttendanceInfo | undefined> {
     const r = await fetch("privateInfo.csv")
@@ -40,32 +39,6 @@ export async function fetchPrivateInfo(password: string, student: IStudent): Pro
     }
 }
 
-async function generatePassCodes() {
-    const r = await fetch("http://localhost:3000/publicinfo.csv")
-    const text = await r.text();
-
-    // This will come in like this:
-    // "firstName,lastName,improvedAttendance"
-    // "John,Doe,TRUE"
-    // "Jane,Smith,FALSE"
-    const attendanceInfoArray = csvStringToJson(text).map((json: any) => {
-        const passCode = Math.random().toString(36).substring(4, 10);
-        return ({
-            firstName: json["firstName"],
-            lastName: json["lastName"],
-            passCode:  passCode,
-            passwordHash:  hash((json["firstName"] + json["lastName"]).toUpperCase() +  passCode)
-        })});
-    let string = 'firstName,lastName,passCode,passwordHash\r\n';
-    attendanceInfoArray.forEach(info => {
-        string += `${info.firstName},${info.lastName},${info.passCode},${info.passwordHash}\r\n`
-    });
-}
-
-function hash(input: string): string {
-    const hash = SHA256(input);
-    return hash.toString(CryptoJS.enc.Hex);
-}
 
 /*
 const privateAttendanceInfoArray: IPrivateAttendanceInfo[] = [
