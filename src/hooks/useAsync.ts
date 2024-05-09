@@ -11,7 +11,7 @@ export function useAsync<T>(
     asyncFunc()
       .then((val) => {
         setLoaded(true);
-        setValue(value);
+        setValue(val);
         if (onSuccess !== undefined) {
           onSuccess(val);
         }
