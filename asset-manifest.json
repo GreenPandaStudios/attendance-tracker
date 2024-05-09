@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/attendance-tracker/static/css/main.fb282219.css",
-    "main.js": "/attendance-tracker/static/js/main.bd295b3d.js",
+    "main.js": "/attendance-tracker/static/js/main.a76ce58e.js",
     "static/js/453.39c6d6a2.chunk.js": "/attendance-tracker/static/js/453.39c6d6a2.chunk.js",
     "index.html": "/attendance-tracker/index.html",
     "main.fb282219.css.map": "/attendance-tracker/static/css/main.fb282219.css.map",
-    "main.bd295b3d.js.map": "/attendance-tracker/static/js/main.bd295b3d.js.map",
+    "main.a76ce58e.js.map": "/attendance-tracker/static/js/main.a76ce58e.js.map",
     "453.39c6d6a2.chunk.js.map": "/attendance-tracker/static/js/453.39c6d6a2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fb282219.css",
-    "static/js/main.bd295b3d.js"
+    "static/js/main.a76ce58e.js"
   ]
 }
